@@ -1,0 +1,111 @@
+
+<title> Validação da senha </title>  
+</head> 
+
+
+<script>  
+function validateForm() {  
+    //coleta dados de formulário
+    var pw1 = document.getElementById("pswd1").value;  
+    var pw2 = document.getElementById("pswd2").value;  
+    var nome1 = document.getElementById("fname").value;  
+    var nome2 = document.getElementById("lname").value;  
+      
+    //verifica o campo de nome
+    if(nome1 == "") {  
+      document.getElementById("blankMsg").innerHTML = "**Preencha o primeiro nome";  
+      return false;  
+    }  
+    
+    
+    //validação de dados  
+    if(!isNaN(nome1)){  
+      document.getElementById("blankMsg").innerHTML = "**Somente caracteres são permitidos";  
+      return false;  
+    }  
+  
+
+    //validação de dados 
+    if(!isNaN(nome2)){  
+      document.getElementById("charMsg").innerHTML = "**Somente caracteres são permitidos";  
+      return false;  
+    }   
+    
+    
+    //verifica o campo de senha vazio 
+    if(pw1 == "") {  
+      document.getElementById("message1").innerHTML = "**Preencha a senha por favor!";  
+      return false;  
+    }  
+    
+
+    //verifica o campo de confirmação de senha vazio
+    if(pw2 == "") {  
+      document.getElementById("message2").innerHTML = "**Digite a senha por favor!";  
+      return false;  
+    }   
+    
+    
+    //validação do tamanho mínimo da senha 
+    if(pw1.length < 8) {  
+      document.getElementById("message1").innerHTML = "**O tamanho da senha deve ter pelo menos 8 caracteres";  
+      return false;  
+    }  
+
+    
+    //comprimento máximo da senha  
+    if(pw1.length > 15) {  
+      document.getElementById("message1").innerHTML = "**O comprimento da senha não deve exceder 15 caracteres";  
+      return false;  
+    }  
+    
+
+    if(pw1 != pw2) {  
+      document.getElementById("message2").innerHTML = "**As senhas não são iguais";  
+      return false;  
+    } else {  
+      alert ("Sua senha criada com sucesso");  
+      document.write("O formulário JavaScript foi enviado com sucesso");  
+    }  
+ }  
+</script>  
+  
+<body>  
+<h1 style="color:green">Cadastre-se</h1>   
+  
+<form onsubmit ="return validateForm()">  
+
+    
+<!-- Enter first name -->  
+<td> Nome completo </td>  
+<input type = "text" id = "fname" value = "">   
+<span id = "blankMsg" style="color:red"> </span> <br><br>  
+
+
+<!-- Enter last name -->  
+<td> Sobrenome </td>  
+<input type = "text" id = "lname" value = "">   
+<span id = "charMsg" style="color:red"> </span> <br><br>  
+
+
+<!-- Create a new password -->  
+<td> Criar senha </td>  
+<input type = "password" id = "pswd1" value = "">   
+<span id = "message1" style="color:red"> </span> <br><br>  
+
+
+<!?Insira a senha de confirmação -->  
+<td> Confirme sua senha </td>  
+<input type = "password" id = "pswd2" value = "">   
+<span id = "message2" style="color:red"> </span> <br><br>  
+
+
+<!-- Click to verify valid password -->  
+<button type = "submit" value = "Submit">Enviar</button> 
+
+  
+<!-- Click to reset fields -->  
+<button type = "reset" value = "Reset" >Reset</button>  
+</form>  
+</body>  
+</html>  
